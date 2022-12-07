@@ -1,0 +1,151 @@
+.bloc10{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background:  #323945;
+    align-items: center;
+    padding: 80px 0;
+}
+
+
+
+.bloc10 .sm-bloc10_1{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5pc;
+    margin-bottom: 5pc;
+}
+
+table{
+    width: 100%;
+    margin-top: 2pc;
+    color: white;
+}
+
+table tr{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid white;
+}
+
+table tr td{
+    display: flex;
+    align-items: center;
+}
+
+
+table tr td:nth-child(1){
+    width: 40px;
+    height: 49px;
+    padding: 5px 8px;
+}
+
+table tr td:nth-child(2){
+    width: 244px;
+    height: 59px;
+}
+
+
+table tr td:nth-child(3){
+    width: 147px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+table tr td:nth-child(4){
+    width: 241px;
+    height: 49px;
+    padding: 5px 8px;
+    display: flex;
+    justify-content: right;
+}
+
+table tr td:nth-child(5){
+    width: 141px;
+    height: 49px;
+    padding: 5px 8px;
+    display: flex;
+    justify-content: right;
+}
+
+table tr td:nth-child(6){
+    width: 142px;
+    height: 49px;
+    padding: 5px 8px;
+    display: flex;
+    justify-content: right;
+}
+
+table tr td:nth-child(7){
+    width: 139px;
+    height: 49px;
+    padding: 5px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+table tr td:nth-child(8){
+    width: 139px;
+    height: 49px;
+    padding: 5px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+table tr td:nth-child(9){
+    width: 139px;
+    height: 49px;
+    padding: 5px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.ftext{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background:  #3c434f;
+    align-items: center;
+    padding-bottom: 2pc;
+}
+
+.ftext .text{
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    width: 58%;
+    margin-top: 2pc;
+}
+
+.ftext .text .sm-text{
+    margin-top: 2pc;
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    flex-direction: column;
+}
+
+.ftext .text .sm-text h1{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.ftext .text .sm-text p{
+    color: rgba(107,114,128);
+    line-height: 1.2;
+}
+
+.coin-img {
+    margin-left: 8px;
+    width: 27px;
+}
+
+td a {
+    color: white;
+}

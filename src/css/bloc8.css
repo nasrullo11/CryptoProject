@@ -1,0 +1,176 @@
+.bloc8{
+    width: 100%;
+    height: 162px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bloc8 .sm-bloc8_1{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    background: #7e62fd;
+    align-items: center;
+    justify-content: right;
+    cursor: pointer;
+}
+
+.bloc8 .sm-bloc8_1 svg{
+    margin-right: 4pc;
+}
+
+.bloc8 .sm-bloc8_1 span{
+    margin-right: 3pc;
+}
+
+.bloc8 .sm-bloc8_1 span h1{
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.bloc8 .sm-bloc8_2{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    background: #7954ff;
+    align-items: center;
+    justify-content: left;
+    cursor: pointer;
+}
+
+.bloc8 .sm-bloc8_2 span{
+    margin-right: 5pc;
+    margin-left: 5pc;
+}
+
+.bloc8 .sm-bloc8_2 span h1{
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* modal */
+
+.modal{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #32394583;
+    z-index: 4;
+    top: 0;
+    transition: all .3s;
+    transform: scale(0);
+}
+
+.false{
+    transform: scale(1);
+    transition: .3s;
+}
+
+.sm-modal{
+    width: 700px;
+    height: 500px;
+    display: flex;
+    background: white;
+    border-radius: 7px;
+}
+
+.login{
+    width: 312px;
+    height: 406px;
+    padding: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.login h1{
+    color: #7954ff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.login input{
+    width: 100%;
+    padding: 0.55rem 0.7rem;
+    font-weight: 400;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    outline: none;
+}
+
+.login button{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 0.8rem 3rem;
+    transition: .3s;
+    background: #7e62fd;
+    border: none;
+    border-radius: 50px;
+}
+
+.login button:hover{
+    background: #4bc3c3;
+}
+
+.login span{
+    color: #3c434f;
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.login span span{
+    color: #7e62fd;
+    transition: .3s;
+}
+
+.login span span:hover{
+    color: #4bc3c3;
+}   
+
+/* modal1 */
+
+.modal1{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #32394583;
+    z-index: 6;
+    top: 0;
+    transition: all .3s;
+    transform: scale(0);
+}
+
+.false1{
+    transform: scale(1);
+}
+
+.sm-modal1{
+    width: 594.828px;
+    height: 428.766px;
+    display: flex;
+    background: white;
+    border-radius: 7px;
+}
+
+.login1{
+    width: 299.828px;
+    height: 332.766px;
+}

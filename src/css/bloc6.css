@@ -1,0 +1,160 @@
+.bloc6{
+    width: 100%;
+    height: 486px;
+    padding: 80px 0;
+    background: #2a303b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.bloc6 .sm-bloc6_1{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bloc6 .sm-bloc6_1 .text h1{
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.bloc6 .sm-bloc6_1 .text p{
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.bloc6 .sm-bloc6_1 .card{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+.bloc6 .sm-bloc6_1 .card .sm-card{
+    display: flex;
+    margin-top: 5pc;
+    margin-right: 4pc;
+}
+
+.bloc6 .sm-bloc6_1 .card .sm-card .ms-card{
+    width: 160px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+    margin-left: 32px;
+    border-radius: 7px;
+    background-image: linear-gradient(to right, #25bfbf 0%, #6edcaa 100%);
+}
+
+.bloc6 .sm-bloc6_1 .card .sm-card .ms-card1{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.bloc6 .sm-bloc6_1 .card .sm-card .ms-card2{
+    width: 160px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+    margin-left: 32px;
+    border-radius: 7px;
+    background: white;
+    color: #2a303b;
+    transition: .3s;
+}
+
+
+.bloc6 .sm-bloc6_1 .card .sm-card .ms-card2:hover{
+   background-image: linear-gradient(to right, #25bfbf 0%, #6edcaa 100%);
+   color: white !important;
+}
+
+.bloc6 .sm-bloc6_1 .chiziq span{
+    padding:  90px 0;
+    border: 1px dashed white;
+}
+
+.bloc6 .sm-bloc6_1 .chiziq .s1{
+    position: absolute;
+    transform: rotate(90deg);
+    top: 12.7pc;
+    left:35pc;
+    z-index: 0;
+    animation: s1 1s infinite ;
+}
+
+.bloc6 .sm-bloc6_1 .chiziq .s2{
+    position: absolute;
+    transform: rotate(90deg);
+    top: 12.7pc;
+    left:47pc;
+    z-index: 0;
+    animation: s2 1s infinite ;
+}
+
+.bloc6 .sm-bloc6_1 .chiziq .s3{
+    position: absolute;
+    top: 15.7pc;
+    left:56pc;
+    z-index: 0;
+    animation: s3 1s infinite ;
+}
+
+.bloc6 .sm-bloc6_1 .chiziq .s4{
+    position: absolute;
+    transform: rotate(90deg);
+    top: 23.7pc;
+    left:53pc;
+    z-index: 0;
+    animation: s4 1s infinite ;
+}
+@keyframes s1 {
+    0%{
+        left: 35pc;
+    }
+
+    100%{
+        left: 39pc;
+    }
+}
+
+@keyframes s2 {
+    0%{
+        left: 47pc;
+    }
+
+    100%{
+        left: 50pc;
+    }
+}
+
+@keyframes s3 {
+    0%{
+        top: 15.7pc;
+
+    }
+
+    100%{
+        top: 17.7pc;
+    }
+}
+
+@keyframes s4 {
+    0%{
+        left:53pc;
+    }
+
+    100%{
+        left: 50pc;
+    }
+}

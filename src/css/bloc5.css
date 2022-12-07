@@ -1,0 +1,53 @@
+.bloc5{
+    width: 100%;
+    height: 570px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:#323945;
+}
+
+.bloc5 .sm-bloc5_1{
+    display: flex;
+    width: 60%;
+    padding: 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bloc5 .sm-bloc5_1 .text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bloc5 .sm-bloc5_1 .text h1{
+    font-size: 2.3rem;
+    font-weight: 700;
+}
+
+.bloc5 .sm-bloc5_1 .text p{
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 48px 0;
+    width: 38rem;
+}
+
+.bloc5 .sm-bloc5_1 .text button{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0.8rem 3rem;
+    border-radius: 50px;
+    width: 185px;
+    color: #fff;
+    background: #7e62fd;
+    transition: .3s;
+    border: none;
+}
+
+.bloc5 .sm-bloc5_1 .text button:hover{
+    background: #4bc3c3;
+}
