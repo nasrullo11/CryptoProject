@@ -4,32 +4,31 @@ import Bloc9 from "./Bloc9"
 import logo from "../img/logo.png" 
 import RechartsExample from './Chart';
 import "../css/cryptodetails.css"
-import axios3 from 'axios';
+import {useDispatch, useSelector} from "react-redux";
+import {useLocation} from "react-router-dom";
+import { currencyDetailAction } from './actions/currencyDetailAction'
 
 const CryptoDetails = () => {
 
   const [coins, setCoins] = useState([])
+  const dispatch = useDispatch()
+  const location = useLocation()
+  const { crypto_id } = location.state
+  const { currencyDetail } = useSelector((state) => state.currencyDetail)
 
   useEffect(() => {
-    axios3.get("https://rahmet97.pythonanywhere.com/v1/api/list-crypto")
-    .then(res => {
-      console.log(res.data)
-      setCoins(res.data)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-  }, [])
+    dispatch(currencyDetailAction(crypto_id))
+  }, [crypto_id])
 
   return (
     <div>
        <div className="bloc10">
           <div className="sm-bloc10_2">
             <div className="logo">
-                <img height="28" width="28" src="https://assets.coingecko.com/coins/images/1/small/bitcoin.png?1547033579" alt="" />
-                <span> &nbsp; Bitcoin (BTC) <span>0.2%</span></span>
+                <img height="28" width="28" src={currencyDetail?.image.small} alt="" />
+                <span> &nbsp; {currencyDetail?.name} ({currencyDetail?.symbol.toUpperCase()}) <span>{currencyDetail?.market_data.market_cap_change_percentage_24h_in_currency.usd}%</span></span>
             </div>
-            <span>$17,016.38</span>
+            <span>${currencyDetail?.market_data.current_price.usd}</span>
             <div className="icon">
                 <span className="span">
                     <Icon icon="mdi:share-outline" color="white" width="20" />

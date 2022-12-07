@@ -2,24 +2,30 @@ import "../css/bloc10.css"
 import "../css/bloc1.css"
 import { useState } from "react"
 import { useEffect } from "react"
-import axios3 from 'axios'  
+import { axios2 } from './axios'
 import { currencyFormat } from "../utils"
-import { Link } from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
+import {useDispatch, useSelector} from "react-redux";
+import {cryptoListAction} from "./actions/cryptoListAction";
 
 const Bloc10 = () => {
 
   const [coins, setCoins] = useState([])
+  const dispatch = useDispatch()
+    const navigate = useNavigate()
+  const cryptoList = useSelector((state) => state.cryptoList.crypto)
 
   useEffect(() => {
-    axios3.get("https://rahmet97.pythonanywhere.com/v1/api/list-crypto")
-    .then(res => {
-      console.log(res.data)
-      setCoins(res.data)
-    })
-    .catch(err => {
-      console.log(err)
-    })
+    dispatch(cryptoListAction())
   }, [])
+
+  const handleNavigate = (id) => {
+      navigate(`/coin/${id}`, {
+          state: {
+              crypto_id: id,
+          }
+      })
+  }
 
   return (
     <div>
@@ -37,7 +43,7 @@ const Bloc10 = () => {
                 <td>Total Volume</td>
               </tr>
                 {
-                    coins.map(cryptos => {
+                    cryptoList?.map(cryptos => {
                       return(
                         <tr key={cryptos.id}>
                           <td>
@@ -45,10 +51,10 @@ const Bloc10 = () => {
                             <img src={cryptos.image} alt="" className="coin-img"/>
                           </td>
                           <td>
-                            <Link to={`/coin/${cryptos.market_cap_rank}`}>
+                            <div onClick={() => handleNavigate(cryptos.id)}>
                               {cryptos.name} 
                               ({cryptos.symbol})
-                            </Link>
+                            </div>
                             </td>
                           <td>{currencyFormat(cryptos.current_price)}</td>
                           <td>
