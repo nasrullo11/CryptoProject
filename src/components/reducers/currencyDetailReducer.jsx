@@ -2,7 +2,7 @@ import * as currencyDetailTypes from '../actionTypes/currencyDetailActionTypes'
 
 const initState = {
     loading: false,
-    currencyDetail: {},
+    currencyDetail: null,
     error: ''
 }
 

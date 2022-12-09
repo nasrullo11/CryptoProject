@@ -12,13 +12,17 @@ const CryptoDetail = () => {
     const dispatch = useDispatch()
     const location = useLocation()
     const { crypto_id } = location.state
-    const { currencyDetail } = useSelector((state) => state.currencyDetail)
-    console.log(currencyDetail)
-
+    const { currencyDetail, loading } = useSelector((state) => state.currencyDetail)
 
     useEffect(() => {
         dispatch(currencyDetailAction(crypto_id))
     }, [crypto_id])
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (!currencyDetail) return null
 
   return (
     <div>
