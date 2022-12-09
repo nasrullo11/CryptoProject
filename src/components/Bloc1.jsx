@@ -8,9 +8,11 @@ import c4 from "../img/c4.png"
 import c5 from "../img/c5.png"
 import React, { useState } from 'react'
 import { Link } from "react-router-dom"
+import {useSelector} from "react-redux";
 
 const Bloc1 = () => {
   const [count, usecount] = useState(true)
+  const { access } = useSelector((state) => state.auth)
   window.onscroll = function() {myFunction()};
 
   function myFunction() {
@@ -36,7 +38,11 @@ const Bloc1 = () => {
                 </span>
                 <span><a href="#about">About</a></span>
                 <span><a href="#faq">Faq</a></span>
-                <span><a href="#log">Login</a></span>
+                <span>
+                  <a href="#log">
+                    {!access ? 'Login' : 'Logout'}
+                  </a>
+                </span>
                 <Link to='/bloc'> 
                   <button>Investing</button>
                 </Link>
