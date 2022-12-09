@@ -6,9 +6,13 @@ import RechartsExample from '../components/Chart';
 import {useDispatch, useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
 import {currencyDetailAction} from "../components/actions/currencyDetailAction";
+import { useState } from 'react';
 
 const CryptoDetail = () => {
-
+    const [by , bys] = useState(true)
+    const byc = () => {
+      bys(cyt => !cyt)
+    }
     const dispatch = useDispatch()
     const location = useLocation()
     const { crypto_id } = location.state
@@ -32,7 +36,7 @@ const CryptoDetail = () => {
                 <img height="28" width="28" src={currencyDetail?.image.small} alt="" />
                 <span> &nbsp; {currencyDetail?.name} ({currencyDetail?.symbol.toUpperCase()}) <span>{currencyDetail?.market_data.market_cap_change_percentage_24h_in_currency.usd}%</span></span>
             </div>
-            <span>${currencyDetail?.market_data.current_price.usd}</span>
+            <span className='by'>${currencyDetail?.market_data.current_price.usd}<button className="btn01" onClick={byc}>buy/sell</button></span>
             <div className="icon">
                 <span className="span">
                     <Icon icon="mdi:share-outline" color="white" width="20" />
@@ -134,6 +138,27 @@ const CryptoDetail = () => {
               </div>
             </div>
         </div>
+      <div className={by ? "modas flm" : "modas"} onClick={byc}>
+        <div className="sm-modas" onClick={e => e.stopPropagation()}>
+          <h1><img height="68" width="68" src={currencyDetail?.image.small} alt="" />
+          <span> &nbsp; {currencyDetail?.name} ({currencyDetail?.symbol.toUpperCase()}) </span></h1>
+          <p>1 {currencyDetail?.name} ({currencyDetail?.symbol.toUpperCase()}) cost: ${currencyDetail?.market_data.current_price.usd}</p>
+          <div className="pic">
+            <div className="sm-pic">
+              <h1>Buy</h1>
+              <input type="text" />
+              <input type="text"  />
+              <button className="btn01" onClick={byc}>Buy</button>
+            </div>
+            <div className="sm-pic">
+              <h1>Sell</h1>
+              <input type="text" />
+              <input type="text" />
+              <button className="btn01" onClick={byc}>Sell</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
