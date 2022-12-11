@@ -51,7 +51,7 @@ const Bloc10 = () => {
                             <img src={cryptos.image} alt="" className="coin-img"/>
                           </td>
                           <td>
-                            <div onClick={() => handleNavigate(cryptos.id)}>
+                            <div onClick={() => handleNavigate(cryptos.id)} className='crypto-name'>
                               {cryptos.name} 
                               ({cryptos.symbol})
                             </div>

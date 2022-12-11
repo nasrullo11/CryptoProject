@@ -228,3 +228,7 @@ td a {
 .sm-modas p{
     font-size: 24px;
 }
+
+.crypto-name {
+    cursor: pointer;
+}

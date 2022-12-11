@@ -6,13 +6,9 @@ import RechartsExample from '../components/Chart';
 import {useDispatch, useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
 import {currencyDetailAction} from "../components/actions/currencyDetailAction";
-import { useState } from 'react';
 
 const CryptoDetail = () => {
-    const [by , bys] = useState(true)
-    const byc = () => {
-      bys(cyt => !cyt)
-    }
+
     const dispatch = useDispatch()
     const location = useLocation()
     const { crypto_id } = location.state
@@ -36,7 +32,7 @@ const CryptoDetail = () => {
                 <img height="28" width="28" src={currencyDetail?.image.small} alt="" />
                 <span> &nbsp; {currencyDetail?.name} ({currencyDetail?.symbol.toUpperCase()}) <span>{currencyDetail?.market_data.market_cap_change_percentage_24h_in_currency.usd}%</span></span>
             </div>
-            <span className='by'>${currencyDetail?.market_data.current_price.usd}<button className="btn01" onClick={byc}>buy/sell</button></span>
+            <span>${currencyDetail?.market_data.current_price.usd}</span>
             <div className="icon">
                 <span className="span">
                     <Icon icon="mdi:share-outline" color="white" width="20" />
@@ -47,42 +43,41 @@ const CryptoDetail = () => {
                 <span className="span">
                     <Icon icon="ic:baseline-star-border" color="white" width="20" />
                 </span>
-                <span>On 1,182,009 watchlists</span>
             </div>
             <div className="lg">
                 <div className="sm-lg">
 
                 </div>
                 <div className="sm-lg1">
-                    <span>$16,880.81</span>
+                    <span>${currencyDetail?.market_data.low_24h.usd}</span>
                     <span>24H Range</span>
-                    <span>$17,111.05</span>
+                    <span>${currencyDetail?.market_data.high_24h.usd}</span>
                 </div>
             </div>
             <div className="card1">
                 <div className="sm-card1">
                     <span>Market Cap </span>
-                    <span>$327,036,175,607 </span>
+                    <span>${currencyDetail?.market_data.market_cap.usd}</span>
                 </div>
                 <div className="sm-card1">
-                    <span>Market Cap </span>
-                    <span>$327,036,175,607 </span>
+                    <span>Circulating Supply </span>
+                    <span>{currencyDetail?.market_data.circulating_supply}</span>
                 </div>
                 <div className="sm-card1">
-                    <span>Market Cap </span>
-                    <span>$327,036,175,607 </span>
+                    <span>24 Hour Trading Vol </span>
+                    <span>${currencyDetail?.market_data.total_volume.usd}</span>
                 </div>
                 <div className="sm-card1">
-                    <span>Market Cap </span>
-                    <span>$327,036,175,607 </span>
+                    <span>Total Supply </span>
+                    <span>{currencyDetail?.market_data.total_supply}</span>
                 </div>
                 <div className="sm-card1">
-                    <span>Market Cap </span>
-                    <span>$327,036,175,607 </span>
+                    <span>Fully Diluted Valuation </span>
+                    <span>${currencyDetail?.market_data.fully_diluted_valuation.usd}</span>
                 </div>
                 <div className="sm-card1">
-                    <span>Market Cap </span>
-                    <span>$327,036,175,607 </span>
+                    <span>Max Supply </span>
+                    <span>{currencyDetail?.market_data.max_supply}</span>
                 </div>
             </div>
           </div>
@@ -90,18 +85,8 @@ const CryptoDetail = () => {
         <div className="chart">
           <div className="sm-chart">
             <h1>Bitcoin Price Chart (BTC/USD)</h1>
-            <p>Last updated 04:56PM UTC. Currency in USD.</p>
+            <p>24h changes.</p>
             <div className="date">
-              <div className="sm-date">
-                  <span>24h</span>
-                  <span>7d</span>
-                  <span>14d</span>
-                  <span>30d</span>
-                  <span>90d</span>
-                  <span>180d</span>
-                  <span>1y</span>
-                  <span>Max</span>
-              </div>
             </div>
             <div className="sms-chart">
               <RechartsExample />
@@ -138,27 +123,6 @@ const CryptoDetail = () => {
               </div>
             </div>
         </div>
-      <div className={by ? "modas flm" : "modas"} onClick={byc}>
-        <div className="sm-modas" onClick={e => e.stopPropagation()}>
-          <h1><img height="68" width="68" src={currencyDetail?.image.small} alt="" />
-          <span> &nbsp; {currencyDetail?.name} ({currencyDetail?.symbol.toUpperCase()}) </span></h1>
-          <p>1 {currencyDetail?.name} ({currencyDetail?.symbol.toUpperCase()}) cost: ${currencyDetail?.market_data.current_price.usd}</p>
-          <div className="pic">
-            <div className="sm-pic">
-              <h1>Buy</h1>
-              <input type="text" />
-              <input type="text"  />
-              <button className="btn01" onClick={byc}>Buy</button>
-            </div>
-            <div className="sm-pic">
-              <h1>Sell</h1>
-              <input type="text" />
-              <input type="text" />
-              <button className="btn01" onClick={byc}>Sell</button>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }
