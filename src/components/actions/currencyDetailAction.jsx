@@ -10,4 +10,4 @@ export const currencyDetailAction = (id) => {
             dispatch(handleType(currencyDetailTypes.CRYPTO_DETAIL_SUCCESS, response.data))
         } catch (e) {}
     }
-}
+} 

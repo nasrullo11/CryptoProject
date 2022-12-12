@@ -26,7 +26,7 @@ const Bloc10 = () => {
           }
       })
   }
-
+ 
   return (
     <div>
        <div className="bloc10">

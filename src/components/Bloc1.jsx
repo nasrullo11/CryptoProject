@@ -8,11 +8,15 @@ import c4 from "../img/c4.png"
 import c5 from "../img/c5.png"
 import React, { useState } from 'react'
 import { Link } from "react-router-dom"
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import axios from "./axios"
+import { useEffect } from "react"
+import { userDetailAction } from "./actions/userDetailAction"
 
 const Bloc1 = () => {
   const [count, usecount] = useState(true)
   const { access } = useSelector((state) => state.auth)
+
   window.onscroll = function() {myFunction()};
 
   function myFunction() {
@@ -22,6 +26,22 @@ const Bloc1 = () => {
       usecount(true)
     }
   }
+
+  const dispatch = useDispatch()
+  console.log(access);
+  useEffect(() => {
+    dispatch(userDetailAction(access))
+  }, [access])
+  const [log, setLog] = useState("Login")
+  const userDetail = useSelector((state) => state.userDetail)
+
+  console.log(userDetail)
+  const login = () => {
+    if(!access) {
+      setLog("Logout")
+    }
+  }
+
   return (
     <div id="home">
         <div className="bloc1">
@@ -39,9 +59,7 @@ const Bloc1 = () => {
                 <span><a href="#about">About</a></span>
                 <span><a href="#faq">Faq</a></span>
                 <span>
-                  <a href="#log">
-                    {!access ? 'Login' : 'Logout'}
-                  </a>
+                  <a href="#log" onClick={login}>{log}</a>
                 </span>
                 <Link to='/bloc'> 
                   <button>Investing</button>

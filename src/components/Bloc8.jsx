@@ -6,6 +6,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { getToken, postAuth, refreshToken } from './actions/userActions'
 import { useDispatch, useSelector } from 'react-redux'
 import { axios2 } from './axios';
+import { userDetailAction } from './actions/userDetailAction';
 
 const Bloc8 = () => {
     const [count, usecount] = useState(true)
@@ -41,6 +42,7 @@ const Bloc8 = () => {
 
   const login = () => {
     dispatch(postAuth(loginForm.username, loginForm.password))
+    dispatch(userDetailAction(access))
     navigate('/bloc')
   }
 
@@ -62,7 +64,7 @@ const Bloc8 = () => {
 
   useEffect(() => {
     if(response == null) {
-      navigate('#log')
+      navigate('/')
     }
   }, [])
 
