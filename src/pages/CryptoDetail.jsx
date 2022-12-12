@@ -84,7 +84,7 @@ const CryptoDetail = () => {
         </div>
         <div className="chart">
           <div className="sm-chart">
-            <h1>Bitcoin Price Chart (BTC/USD)</h1>
+            <h1>{currencyDetail?.name} Price Chart ({currencyDetail?.symbol.toUpperCase()}/USD)</h1>
             <p>24h changes.</p>
             <div className="date">
             </div>
@@ -114,12 +114,12 @@ const CryptoDetail = () => {
         <div className="ftext">
             <div className="text">
               <div className="sm-text">
-                <h1>BTC Price Today</h1>
-                <p>. BTC price is up 0.1% in the last 24 hours. It has a circulating supply of 19 Million BTC coins and a total supply of 21 Million. If you are looking to buy or sell Bitcoin, </p>
+                <h1>{currencyDetail?.symbol.toUpperCase()} Price Today</h1>
+                <p>BTC price is up {currencyDetail?.market_data.market_cap_change_percentage_24h_in_currency.usd}% in the last 24 hours. It has a circulating supply of 19 Million BTC coins and a total supply of 21 Million. If you are looking to buy or sell Bitcoin, </p>
               </div>
               <div className="sm-text">
-                <h1>What is Bitcoin?</h1>
-                <p>As a financial metric, market cap allows you to compare the total circulating value of one cryptocurrency with another. Large cap cryptocurrencies such as Bitcoin and Ethereum have a market cap of over $10 billion. They typically consist of protocols that have demonstrated track records, and have a vibrant ecosystem of developers maintaining and enhancing the protocol, as well as building new projects on top of them. While market cap is a simple and intuitive comparison metric, it is not a perfect point of comparison. Some cryptocurrency projects may appear to have inflated market cap through price swings and the tokenomics of their supply. As such, it is best to use this metric as a reference alongside other metrics such as trading volume, liquidity, fully diluted valuation, and fundamentals during your research process.</p>
+                <h1>What is {currencyDetail?.name}?</h1>
+                <p>As a financial metric, market cap allows you to compare the total circulating value of one cryptocurrency with another. Large cap cryptocurrencies such as {currencyDetail?.name} have a market cap of over ${currencyDetail?.market_data.market_cap.usd}. They typically consist of protocols that have demonstrated track records, and have a vibrant ecosystem of developers maintaining and enhancing the protocol, as well as building new projects on top of them. While market cap is a simple and intuitive comparison metric, it is not a perfect point of comparison. Some cryptocurrency projects may appear to have inflated market cap through price swings and the tokenomics of their supply. As such, it is best to use this metric as a reference alongside other metrics such as trading volume, liquidity, fully diluted valuation, and fundamentals during your research process.</p>
               </div>
             </div>
         </div>
