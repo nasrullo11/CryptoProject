@@ -3,7 +3,7 @@ import "../css/bloc8.css"
 import { Icon } from '@iconify/react';
 import log from "../img/login-img.jpg"
 import { useNavigate, useSearchParams } from 'react-router-dom'
-import { getToken, postAuth, refreshToken } from './actions/userActions'
+import { postAuth } from './actions/userActions'
 import { useDispatch, useSelector } from 'react-redux'
 import { axios2 } from './axios';
 import { userDetailAction } from './actions/userDetailAction';
@@ -11,6 +11,7 @@ import { userDetailAction } from './actions/userDetailAction';
 const Bloc8 = () => {
     const [count, usecount] = useState(true)
     const [count1, usecount1] = useState(true)
+    const [msg, setMsg] = useState('')
     const [name, setName] = useState()
 
     const [loginForm, setLoginForm] = useState({
@@ -36,13 +37,8 @@ const Bloc8 = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  
-
-  const { response, token, access } = useSelector((state) => state.auth)
-
   const login = () => {
     dispatch(postAuth(loginForm.username, loginForm.password))
-    dispatch(userDetailAction(access))
     navigate('/bloc')
   }
 
@@ -54,19 +50,22 @@ const Bloc8 = () => {
         username: registerForm.username,
         password1: registerForm.password1,
         password2: registerForm.password2,
-    }).then(() => {
-        console.log(loginForm)
-        setLoginForm({ ...loginForm, username: registerForm.username, password: registerForm.password1 })
-        console.log(loginForm)
-        login()
+    }).then((res) => {
+        console.log(res)
+        if (res.data.message === 'user created') {
+            cou()
+            cou1()
+        }
+        else {
+            if (res.data.message === 'Parol xato') {
+                setMsg('Passwords are not same!')
+            }
+            else{
+                setMsg(res.data.message + '!')
+            }
+        }
     })
   }
-
-  useEffect(() => {
-    if(response == null) {
-      navigate('/')
-    }
-  }, [])
 
   return (
     <div id='log'>
@@ -95,6 +94,7 @@ const Bloc8 = () => {
                 <img src={log} alt="" width="292" height="502"/>
                 <div className="login">
                     <h1>REGISTER</h1>
+                    {msg !== '' ? <span>{msg}</span> : ''}
                     <input
                         type="text"
                         placeholder='First name'
@@ -126,7 +126,7 @@ const Bloc8 = () => {
                         onChange={(e) => setRegisterForm({ ...registerForm, password2: e.target.value })}
                     />
                     <button onClick={() => register()}>Registrer</button>
-                    <span>Already have an account? <span>Login</span></span>
+                    <span>Already have an account? <span onClick={() => {cou();cou1()}}>Login</span></span>
                 </div>
             </div>
         </div>
@@ -146,7 +146,7 @@ const Bloc8 = () => {
                         onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
                     />
                     <button onClick={() => login()}>Login</button>
-                    <span><span>Create New Account</span></span>
+                    <span><span onClick={() => {cou1();cou()}}>Create New Account</span></span>
                 </div>
             </div>
         </div>

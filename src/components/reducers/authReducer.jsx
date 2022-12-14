@@ -4,8 +4,6 @@ const initState = {
   loading: false,
   error: '',
   response: null,
-  token: null,
-  access: null,
 }
 
 export const AuthReducer = (state = initState, action) => {
@@ -15,20 +13,8 @@ export const AuthReducer = (state = initState, action) => {
       return { ...state, loading: true }
     case authTypes.AUTH_SUCCES:
       return { ...state, loading: false, response: payload }
-    case authTypes.SET_TOKEN:
-      return { ...state, loading: false, token: payload }
-    case authTypes.SET_REFRESH:
-      return { ...state, loading: false, access: payload.access }
     case authTypes.AUTH_FAIL:
       return { ...state, loading: false, error: payload }
-    case authTypes.LOG_OUT:
-      return {
-        loading: false,
-        error: '',
-        response: null,
-        token: null,
-        access: null,
-      }
     default:
       return state
   }

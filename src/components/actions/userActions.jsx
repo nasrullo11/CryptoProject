@@ -14,20 +14,15 @@ export const postAuth = (username, password) => {
   }
 }
 
-export const refreshToken = (data, navigate) => {
+export const logoutHandler = (response) => {
   return async (dispatch) => {
     try {
-      const response = await axios2.post('refresh/', data)
-      dispatch(handleType(authTypes.SET_REFRESH, response.data))
-      navigate('/dashboard')
-    } catch (e) {}
-  }
-}
-
-export const logoutHandler = (data) => {
-  return async (dispatch) => {
-    try {
-      dispatch(handleType(authTypes.LOG_OUT, data))
+      const rsp = await axios2.post('logout', {
+        refresh_token: response.refresh
+      }, {
+        headers: {Authorization: `Bearer ${response.access}`}
+      })
+      dispatch(handleType(authTypes.LOG_OUT, rsp.data))
     } catch (e) {}
   }
 }

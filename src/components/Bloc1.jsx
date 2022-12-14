@@ -12,10 +12,13 @@ import {useDispatch, useSelector} from "react-redux";
 import axios from "./axios"
 import { useEffect } from "react"
 import { userDetailAction } from "./actions/userDetailAction"
+import Dropdown from "./Dropdown/Dropdown";
 
 const Bloc1 = () => {
   const [count, usecount] = useState(true)
-  const { access } = useSelector((state) => state.auth)
+  const { response, loading } = useSelector((state) => state.auth)
+  const [log, setLog] = useState("Login")
+  const userDetail = useSelector((state) => state.uerDetail)
 
   window.onscroll = function() {myFunction()};
 
@@ -28,19 +31,19 @@ const Bloc1 = () => {
   }
 
   const dispatch = useDispatch()
-  console.log(access);
   useEffect(() => {
-    dispatch(userDetailAction(access))
-  }, [access])
-  const [log, setLog] = useState("Login")
-  const userDetail = useSelector((state) => state.userDetail)
+      dispatch(userDetailAction(response?.access))
+  }, [response])
 
-  console.log(userDetail)
-  const login = () => {
-    if(!access) {
-      setLog("Logout")
-    }
-  }
+  // const login = () => {
+  //   if(response) {
+  //     setLog("Logout")
+  //   }
+  // }
+
+  if (loading) return <div>Loading...</div>
+
+  if (userDetail) console.log(userDetail)
 
   return (
     <div id="home">
@@ -58,12 +61,18 @@ const Bloc1 = () => {
                 </span>
                 <span><a href="#about">About</a></span>
                 <span><a href="#faq">Faq</a></span>
-                <span>
-                  <a href="#log" onClick={login}>{log}</a>
+                <span style={{height: response ? '24px' : ''}}>
+                  {!response ? <a href="#log">Login</a> : <Dropdown />}
                 </span>
-                <Link to='/bloc'> 
-                  <button>Investing</button>
-                </Link>
+                {!response ? (
+                    <a href="#log">
+                      <button>Investing</button>
+                    </a>
+                ) : (
+                    <Link to='/bloc'>
+                      <button>Investing</button>
+                    </Link>
+                )}
               </div>
             </div>
           </div>
