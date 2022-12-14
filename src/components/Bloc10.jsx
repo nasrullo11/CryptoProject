@@ -2,7 +2,6 @@ import "../css/bloc10.css"
 import "../css/bloc1.css"
 import { useState } from "react"
 import { useEffect } from "react"
-import { axios2 } from './axios'
 import { currencyFormat } from "../utils"
 import {Link, useNavigate} from "react-router-dom"
 import {useDispatch, useSelector} from "react-redux";
@@ -32,6 +31,7 @@ const Bloc10 = () => {
        <div className="bloc10">
           <div className="sm-bloc10_1">
             <h1>Cryptocurrency Prices by Market Cap</h1>
+              <button style={{color: 'black', width: '200px', height: '50px'}} onClick={() => navigate('/my-crypto')}>My CryptoCurrencies</button>
             <table>
               <tr>
                 <td>#</td>
